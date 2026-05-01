@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import os from "os";
 import path from "path";
 import { randomUUID } from "crypto";
 import bcrypt from "bcryptjs";
@@ -131,7 +132,10 @@ export type PortalData = {
   homework: HomeworkRecord[];
 };
 
-const dataDir = path.join(process.cwd(), "data");
+const bundledDataDir = path.join(process.cwd(), "data");
+const isVercelRuntime = process.env.VERCEL === "1";
+const dataDir = isVercelRuntime ? path.join(os.tmpdir(), "cbc-data") : bundledDataDir;
+const bundledPortalDataPath = path.join(bundledDataDir, "portal-data.json");
 const portalDataPath = path.join(dataDir, "portal-data.json");
 const ADMIN_PHONE = normalizePhone("0712345678");
 const BURSAR_PHONE = normalizePhone("0709876543");
@@ -498,7 +502,17 @@ async function ensureStore() {
   try {
     await fs.access(portalDataPath);
   } catch {
-    await fs.writeFile(portalDataPath, JSON.stringify(createDefaultData(), null, 2), "utf8");
+    let initialData = createDefaultData();
+
+    try {
+      const bundledContent = await fs.readFile(bundledPortalDataPath, "utf8");
+      initialData = migratePortalData(JSON.parse(bundledContent) as PortalData);
+    } catch {
+      // Fall back to generated demo data when no bundled data file exists.
+    }
+
+    initialData.students = recalculateStudents(initialData.students, initialData.payments);
+    await fs.writeFile(portalDataPath, JSON.stringify(initialData, null, 2), "utf8");
   }
 }
 
@@ -507,7 +521,6 @@ export async function readPortalData() {
   const content = await fs.readFile(portalDataPath, "utf8");
   const parsed = migratePortalData(JSON.parse(content) as PortalData);
   parsed.students = recalculateStudents(parsed.students, parsed.payments);
-  await fs.writeFile(portalDataPath, JSON.stringify(parsed, null, 2), "utf8");
   return parsed;
 }
 

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #1e3a5f;
+    --navy-light: #2a4a73;
+    --purple: #8b5cf6;
+    --purple-light: #a78bfa;
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --bg: #f8fafc;
+    --surface: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg font-sans text-slate-800 antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(139, 92, 246, 0.08), transparent 30%),
+      linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
+  }
+
+  input,
+  select,
+  textarea {
+    @apply text-slate-900;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-white/20 bg-white/60 shadow-sm backdrop-blur-sm;
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-200 hover:border-purple/20 hover:shadow-md;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-navy/90 backdrop-blur-xl;
+  }
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-center text-navy tracking-tight mb-16;
+}
+
+.card {
+  @apply rounded-2xl border border-white/70 bg-white/75 shadow-sm backdrop-blur-sm transition-shadow duration-200 hover:shadow-md;
+}
+
+.muted {
+  @apply text-slate-600;
+}

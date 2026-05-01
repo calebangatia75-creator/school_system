@@ -1,0 +1,235 @@
+{
+  "school": {
+    "name": "Shekinah School",
+    "location": "Kimilili, Bungoma County",
+    "contact_phone": "+254 710 414 220",
+    "contact_email": "support@shekinah.ac.ke",
+    "motto": "Excellence in Education, Grounded in Faith."
+  },
+  "users": [
+    {
+      "id": "4ae6e83a-b911-4b71-a957-a110238cfb7e",
+      "username": "admin",
+      "password_hash": "$2b$10$.qGGAIEH9bgJAfiDOB6uIeZk77n1R2AYNjRx8mTwmCOn4teY7VY2G",
+      "role": "admin",
+      "full_name": "System Administrator",
+      "phone": "+254712345678",
+      "created_at": "2026-04-30T17:03:26.808Z"
+    },
+    {
+      "id": "6304e7d6-5037-4361-abba-b1a13ec0cdae",
+      "username": "bursar",
+      "password_hash": "$2b$10$4jKOtsHRiYJzweGEnVc1ku.iVO5YXi99k86MH1TKOVVJlgyX3vC92",
+      "role": "bursar",
+      "full_name": "School Bursar",
+      "phone": "+254709876543",
+      "created_at": "2026-04-30T17:03:26.808Z"
+    },
+    {
+      "id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "username": "teacher",
+      "password_hash": "$2b$10$gy7y65tWoWGG6quhHEngq.VlI7Fw3PqEB4EZg8kLqWC5c8N.fou.G",
+      "role": "teacher",
+      "full_name": "Sam Barasa",
+      "phone": "+254700000103",
+      "created_at": "2026-04-30T17:03:26.808Z"
+    }
+  ],
+  "parents": [
+    {
+      "id": "bd9f5b8f-78cd-497f-8569-9455eb65ec0f",
+      "phone": "+254710414220",
+      "pin_hash": "$2b$10$a6CcAlLU9ZxHp9b5tRYms.fhm0ZDX42ILsTwx8BOWq3oTjEDUYetG",
+      "full_name": "Cal Max",
+      "created_at": "2026-04-30T17:03:26.808Z",
+      "password_hash": "$2b$10$2MMAhnc1pfHDx6.DRVuOsuNYZ0T4tBIAbiwIIhRRmy0bnyPV.ZA6K"
+    }
+  ],
+  "students": [
+    {
+      "id": "40e90049-83c1-48b3-8eb2-cd3bd8a1594f",
+      "full_name": "Blessing Wekesa",
+      "grade": "Grade 6",
+      "class_name": "Grade 6 North",
+      "stream": "North",
+      "admission_no": "CBC-2026-014",
+      "parent_phone": "+254710414220",
+      "total_fees": 54000,
+      "amount_paid": 12000,
+      "balance": 42000,
+      "status": "Active"
+    },
+    {
+      "id": "883b7515-65df-4d4f-b8ba-682028d93433",
+      "full_name": "Daniela Wekesa",
+      "grade": "Grade 2",
+      "class_name": "Grade 2 East",
+      "stream": "East",
+      "admission_no": "CBC-2026-115",
+      "parent_phone": "+254710414220",
+      "total_fees": 42000,
+      "amount_paid": 5500,
+      "balance": 36500,
+      "status": "Active"
+    }
+  ],
+  "payments": [
+    {
+      "id": "c7b54556-f1b7-4dca-bd4b-7c775c3e05eb",
+      "student_id": "40e90049-83c1-48b3-8eb2-cd3bd8a1594f",
+      "amount": 12000,
+      "method": "mpesa",
+      "reference": "QWE123",
+      "recorded_by": "6304e7d6-5037-4361-abba-b1a13ec0cdae",
+      "created_at": "2026-04-03T09:00:00.000Z"
+    },
+    {
+      "id": "e50daf67-cea9-4e35-aca6-771026fe3913",
+      "student_id": "883b7515-65df-4d4f-b8ba-682028d93433",
+      "amount": 3500,
+      "method": "bank",
+      "reference": "BNK778",
+      "recorded_by": "6304e7d6-5037-4361-abba-b1a13ec0cdae",
+      "created_at": "2026-03-11T09:00:00.000Z"
+    },
+    {
+      "id": "b00b25d8-e298-4970-ace5-169182d9d874",
+      "student_id": "883b7515-65df-4d4f-b8ba-682028d93433",
+      "amount": 2000,
+      "method": "cash",
+      "reference": "CASH112",
+      "recorded_by": "6304e7d6-5037-4361-abba-b1a13ec0cdae",
+      "created_at": "2026-02-02T09:00:00.000Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "5c4ec1c9-f9a6-4f19-a55f-6318ea85960b",
+      "title": "Term Fees Reminder",
+      "content": "Please clear outstanding balances before Friday for a smooth re-opening.",
+      "priority": "high",
+      "target_roles": [
+        "parent"
+      ],
+      "target_grades": null,
+      "channel": "portal",
+      "delivery_status": "delivered",
+      "recipients_count": 1,
+      "posted_by": "4ae6e83a-b911-4b71-a957-a110238cfb7e",
+      "expires_at": null,
+      "created_at": "2026-04-20T08:00:00.000Z"
+    },
+    {
+      "id": "6fdf4167-8642-4e19-97f9-5e76e1a64a8d",
+      "title": "Grade 6 Homework Focus",
+      "content": "Carry revision books for tomorrow's Mathematics lesson.",
+      "priority": "normal",
+      "target_roles": [
+        "teacher"
+      ],
+      "target_grades": [
+        "Grade 6"
+      ],
+      "channel": "portal",
+      "delivery_status": "sent",
+      "recipients_count": 1,
+      "posted_by": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "expires_at": null,
+      "created_at": "2026-04-21T08:00:00.000Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": "c5fd0331-9aca-4cd6-8cbc-4ed4134a20e4",
+      "parent_name": "Jane Wanjiku",
+      "phone": "+254712000000",
+      "child_name": null,
+      "grade": "Grade 4",
+      "prev_school": null,
+      "message": "Interested in admission.",
+      "status": "new",
+      "created_at": "2026-04-30T18:04:21.242Z"
+    },
+    {
+      "id": "779e840a-5660-4a22-9677-e2b10e376a4b",
+      "parent_name": "Rose Naliaka",
+      "phone": "+254700000001",
+      "child_name": "Ariana Naliaka",
+      "grade": "Grade 4",
+      "prev_school": "Victory Academy",
+      "status": "new",
+      "created_at": "2026-04-26T09:00:00.000Z",
+      "message": null
+    },
+    {
+      "id": "fc052d50-dfa7-42f6-a68d-95dd4b0593d0",
+      "parent_name": "John Wanyama",
+      "phone": "+254700000002",
+      "child_name": "Mark Wanyama",
+      "grade": "Grade 2",
+      "prev_school": "Kimilili Junior",
+      "status": "contacted",
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "message": null
+    }
+  ],
+  "fee_structures": [
+    {
+      "id": "73d59be4-98c7-4eee-8a6a-0eeba5b4d61d",
+      "grade": "Grade 2",
+      "amount": 42000,
+      "updated_at": "2026-04-30T17:03:26.808Z"
+    },
+    {
+      "id": "230f5ef9-fb81-4fae-b6f1-3edc620b9388",
+      "grade": "Grade 6",
+      "amount": 54000,
+      "updated_at": "2026-04-30T17:03:26.808Z"
+    }
+  ],
+  "teacher_classes": [
+    {
+      "id": "3ce8b1ac-2d21-4737-b9a3-1739fa1ecb61",
+      "teacher_user_id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "class_name": "Grade 6 North",
+      "subject": "Mathematics",
+      "learners": 34
+    },
+    {
+      "id": "88c7f069-ccaf-4c30-aaa5-c566b752613a",
+      "teacher_user_id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "class_name": "Grade 2 East",
+      "subject": "Science",
+      "learners": 31
+    }
+  ],
+  "attendance": [
+    {
+      "id": "50d838c9-3111-42c4-85b9-6c50ce2d9fc5",
+      "teacher_user_id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "class_name": "Grade 6 North",
+      "student_id": "40e90049-83c1-48b3-8eb2-cd3bd8a1594f",
+      "date": "2026-04-19",
+      "status": "Present"
+    },
+    {
+      "id": "f3341643-7100-45ef-b27b-b11e3a8433c3",
+      "teacher_user_id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "class_name": "Grade 2 East",
+      "student_id": "883b7515-65df-4d4f-b8ba-682028d93433",
+      "date": "2026-04-19",
+      "status": "Present"
+    }
+  ],
+  "homework": [
+    {
+      "id": "5bcc4d7b-44a2-49ca-83a9-47d258ab382b",
+      "teacher_user_id": "3e80908c-fe16-4742-b73d-8694a3f59b99",
+      "class_name": "Grade 6 North",
+      "title": "Mathematics Revision",
+      "description": "Complete the fractions worksheet before tomorrow.",
+      "due_date": "2026-04-30",
+      "created_at": "2026-04-28T08:00:00.000Z"
+    }
+  ]
+}

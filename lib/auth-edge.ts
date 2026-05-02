@@ -11,11 +11,9 @@ type AppSessionPayload = {
 };
 
 function toBase64(input: string) {
-  if (typeof atob === "function") {
-    return atob(input);
-  }
-
-  return Buffer.from(input, "base64").toString("binary");
+  // Use globalThis for Edge runtime compatibility
+  const atobFn = typeof globalThis.atob === "function" ? globalThis.atob : atob;
+  return atobFn(input);
 }
 
 function fromBase64Url(input: string) {
@@ -39,7 +37,7 @@ async function hmacSha256(value: string) {
 
   const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(value));
   const bytes = Array.from(new Uint8Array(signature));
-  return btoa(String.fromCharCode(...bytes))
+  return globalThis.btoa(String.fromCharCode(...bytes))
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
     .replace(/=+$/g, "");

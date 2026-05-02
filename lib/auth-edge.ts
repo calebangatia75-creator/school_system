@@ -1,4 +1,14 @@
-import type { AppSessionPayload } from "@/lib/auth-shared";
+// Inline types for Edge compatibility
+type AppRole = "admin" | "bursar" | "teacher" | "parent";
+type SessionSubjectType = "user" | "parent";
+type AppSessionPayload = {
+  sub: string;
+  role: AppRole;
+  fullName: string;
+  subjectType: SessionSubjectType;
+  username?: string | null;
+  phone?: string | null;
+};
 
 function toBase64(input: string) {
   if (typeof atob === "function") {

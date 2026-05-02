@@ -1,4 +1,5 @@
-import type { AppRole } from "@/lib/auth-shared";
+// Inline type for Edge compatibility
+export type AppRole = "admin" | "bursar" | "teacher" | "parent";
 import type { LucideIcon } from "lucide-react";
 import {
   Bell,

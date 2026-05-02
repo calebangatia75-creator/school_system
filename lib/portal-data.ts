@@ -3,7 +3,9 @@ import os from "os";
 import path from "path";
 import { randomUUID } from "crypto";
 import bcrypt from "bcryptjs";
-import type { AppRole } from "@/lib/auth-shared";
+
+// Inline type for Edge compatibility
+export type AppRole = "admin" | "bursar" | "teacher" | "parent";
 
 export type UserRecord = {
   id: string;

@@ -1,6 +1,27 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { APP_SESSION_COOKIE, getRoleHome, type AppRole, type AppSessionPayload, type SessionSubjectType } from "@/lib/auth-shared";
+
+// Inline types for Edge compatibility
+export type AppRole = "admin" | "bursar" | "teacher" | "parent";
+export type SessionSubjectType = "user" | "parent";
+
+export type AppSessionPayload = {
+  sub: string;
+  role: AppRole;
+  fullName: string;
+  subjectType: SessionSubjectType;
+  username?: string | null;
+  phone?: string | null;
+};
+
+export const APP_SESSION_COOKIE = "cbc_session";
+
+export function getRoleHome(role: AppRole) {
+  if (role === "bursar") return "/bursar";
+  if (role === "teacher") return "/teacher";
+  if (role === "parent") return "/parent";
+  return "/admin/dashboard";
+}
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 7;
 
 function getSessionSecret() {
@@ -46,5 +67,4 @@ export function getSessionCookieOptions() {
   };
 }
 
-export { APP_SESSION_COOKIE, getRoleHome };
-export type { AppRole, AppSessionPayload, SessionSubjectType };
+
